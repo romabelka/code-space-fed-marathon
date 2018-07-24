@@ -6,6 +6,10 @@ class Movie extends Component {
 
     }
 
+    state = {
+        isOpen: false
+    }
+
     render() {
         const { title, releaseDate, storyline, posterurl, likes, dislikes } = this.props.movie
         return (
@@ -23,21 +27,35 @@ class Movie extends Component {
                         <button className="btn btn-success">like: {likes}</button>
                         <button className="btn btn-danger">dislike: {dislikes}</button>
                     </div>
-                    <button className="btn btn-primary">hide details</button>
-                    <div className="movie--more">
-                        <div>
-                            <h5>Genres</h5>
-                            <ul>
-                                {this.genres}
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Actors</h5>
-                            <ul>
-                                {this.actors}
-                            </ul>
-                        </div>
-                    </div>
+                    <button className="btn btn-primary test__article--open-btn"
+                            onClick = {this.handleOpen}>
+                        hide details
+                    </button>
+                    {this.advancedSection}
+                </div>
+            </div>
+        )
+    }
+
+    handleOpen = () => this.setState({
+        isOpen: true
+    })
+
+    get advancedSection() {
+        if (!this.state.isOpen) return null
+        return (
+            <div className="movie--more test__article--advanced-section">
+                <div>
+                    <h5>Genres</h5>
+                    <ul>
+                        {this.genres}
+                    </ul>
+                </div>
+                <div>
+                    <h5>Actors</h5>
+                    <ul>
+                        {this.actors}
+                    </ul>
                 </div>
             </div>
         )
