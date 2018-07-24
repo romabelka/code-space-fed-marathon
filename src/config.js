@@ -1,5 +1,10 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
+import {configure} from 'mobx'
+
+configure({
+    enforceActions: true
+})
 
 const config = {
     apiKey: "AIzaSyArhl0E-EIVDb1-_GTPfxyZ67__nNYsKjY",
