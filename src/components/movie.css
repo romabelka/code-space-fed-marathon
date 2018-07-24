@@ -1,0 +1,21 @@
+.movie {
+    display: flex;
+    margin: 20px 0;
+}
+
+.movie--img {
+    margin: 0 20px;
+}
+
+.movie--info {
+}
+
+.movie--likes {
+    padding: 20px 0;
+}
+
+.movie--more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
