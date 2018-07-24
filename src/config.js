@@ -2,6 +2,8 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 import {configure} from 'mobx'
 
+export const appName = 'codes-space-fed-marathon'
+
 configure({
     enforceActions: true
 })

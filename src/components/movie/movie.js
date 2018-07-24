@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {observer} from 'mobx-react'
+import {connect} from 'react-redux'
+import { setMovieLikes } from '../../ducks/movies'
 import './movie.css'
 
-@observer
+@connect(null, { setMovieLikes })
 class Movie extends Component {
     static propTypes = {
 
@@ -44,7 +45,8 @@ class Movie extends Component {
     })
 
     handleLike = () => {
-        this.props.movie.like()
+        const { setMovieLikes, movie } = this.props
+        setMovieLikes(movie)
     }
 
     get advancedSection() {
