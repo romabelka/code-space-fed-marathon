@@ -14,7 +14,7 @@ class Movie extends Component {
                     <img src={posterurl} alt={title}/>
                 </div>
                 <div className="movie--info">
-                    <h3>{title}</h3>
+                    <h3 className="test__article--title">{title}</h3>
                     <h4>{releaseDate}</h4>
                     <section>
                         {storyline}
