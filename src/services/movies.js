@@ -12,7 +12,25 @@ class MovieApiService {
                         [id]: { id, ...movie }
                     }), {})
             )
+    }
 
+    setLikesCount(id, likes) {
+        return firebase.database()
+            .ref(`movies/${id}/likes`)
+            .set(likes)
+    }
+
+    subscribeForMovieChanges(callback) {
+        const dataCallback = (snapshot => callback({
+            id: snapshot.key,
+            ...snapshot.val()
+        }))
+
+        const ref = firebase.database().ref('movies')
+
+        ref.on('child_changed', dataCallback)
+
+        return () => ref.off('child_changed', dataCallback)
     }
 }
 
